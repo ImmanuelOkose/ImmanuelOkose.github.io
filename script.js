@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             i++;
             setTimeout(typeWriter, speed);
         } else {
-            // After the greeting is typed, wait for 2 seconds and then change text
+            // After the greeting is typed, wait for 3 seconds and then change text
             setTimeout(() => {
                 headerTitle.classList.add('fade-out'); // Add fade-out class for smooth transition
                 setTimeout(() => {
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     headerTitle.classList.remove('fade-out'); // Remove the class
                     headerTitle.classList.add('fade-in'); // Add fade-in class (optional)
                 }, 500); // Duration of the fade-out transition
-            }, 2000); // = 2 seconds
+            }, 3000); // Greeting should last for = 2 seconds
         }
     }
 
