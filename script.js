@@ -78,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { text: 'Kubernetes', info: 'K8s or Kubernetes, is an open-source system for automating deployment, scaling, and management of containerized applications.' },
         { text: 'Agile', info: 'Agile is a project management approach that emphasizes incremental delivery, team collaboration, continual planning, and continual learning.' },
         { text: 'Scripting', info: 'Is all automating scripts (e.g., Bash, Python) to automate tasks and manage systems.' }
-        // Add more words and their descriptions
     ];
 
     const popup = document.getElementById('word-cloud-popup');
@@ -118,27 +117,61 @@ document.addEventListener('DOMContentLoaded', () => {
     const footer = document.querySelector('footer');
     const paletteButtons = document.querySelectorAll('.palette');
 
+    function applyDarkMode(isDarkMode) {
+        body.classList.toggle('dark-mode', isDarkMode);
+        sections.forEach(section => section.classList.toggle('dark-mode', isDarkMode));
+        if (wordCloud) wordCloud.classList.toggle('dark-mode', isDarkMode);
+        footer.classList.toggle('dark-mode', isDarkMode);
+    }
+
     themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        sections.forEach(section => section.classList.toggle('dark-mode'));
-        if (wordCloud) wordCloud.classList.toggle('dark-mode');
-        footer.classList.toggle('dark-mode');
+        applyDarkMode(!body.classList.contains('dark-mode'));
     });
 
     paletteButtons.forEach(palette => {
         palette.addEventListener('click', () => {
             const theme = palette.getAttribute('data-theme');
-            body.className = theme; // Reset classes and add the selected theme
+            body.className = theme;
             sections.forEach(section => section.className = theme);
             if (wordCloud) wordCloud.className = theme;
             footer.className = theme;
-            if (body.classList.contains('dark-mode')) {
-                body.classList.add('dark-mode');
-                sections.forEach(section => section.classList.add('dark-mode'));
-                if (wordCloud) wordCloud.classList.add('dark-mode');
-                footer.classList.add('dark-mode');
+            // Re-apply dark mode if it was active
+            if (themeToggle.textContent === 'Light Mode') {
+                applyDarkMode(true);
+            } else {
+                applyDarkMode(false);
             }
         });
+    });
+
+    // Check for saved theme preference on load (optional)
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.className = savedTheme;
+        sections.forEach(section => section.className = savedTheme);
+        if (wordCloud) wordCloud.className = savedTheme;
+        footer.className = savedTheme;
+        if (localStorage.getItem('darkMode') === 'true') {
+            applyDarkMode(true);
+            themeToggle.textContent = 'Light Mode';
+        }
+    } else {
+        // Initialize based on system preference or default to light
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            applyDarkMode(true);
+            themeToggle.textContent = 'Light Mode';
+        } else {
+            applyDarkMode(false);
+            themeToggle.textContent = 'Dark Mode';
+        }
+    }
+
+    // Save theme preference on toggle
+    themeToggle.addEventListener('click', () => {
+        const isDarkMode = body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', isDarkMode);
+        themeToggle.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode';
+        localStorage.setItem('theme', body.className);
     });
 
     // Intersection Observer for Animated Skills/Interests
