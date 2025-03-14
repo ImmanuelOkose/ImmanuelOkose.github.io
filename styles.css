@@ -202,12 +202,19 @@ footer {
 
 /* Word Cloud Styles */
 #word-cloud {
-  width: 100%;
+  width: 90%; /* Reduce the default width */
+  max-width: 600px; /* Set a maximum width to prevent excessive expansion on larger screens */
   min-height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap; /* Allow words to wrap to the next line */
   font-size: 1rem;
+  padding: 1rem; /* Add some padding around the cloud */
+  border: 1px solid var(--light-bg); /* Optional: Add a border for visual containment */
+  border-radius: 8px; /* Optional: Round the corners */
+  margin: 1rem auto; /* Center the cloud within its section */
+  text-align: center; /* Center the words inside the container */
 }
 
 #word-cloud span {
@@ -218,6 +225,7 @@ footer {
   background-color: #f0f0f0;
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  font-size: 1em; /* Reset font-size inheritance if needed */
 }
 
 #word-cloud span:hover {
