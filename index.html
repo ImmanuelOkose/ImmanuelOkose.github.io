@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,33 +7,70 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="particles-js"></div>
     <header>
-        <h1>This is Emmanuel</h1>
+        <h1></h1> 
     </header>
     <hr>
 
-    <section>
-        <h2>Do you want to know about me?</h2>
-        <img src="profile.jpg" alt="My Profile Picture" width="200">
+    <section id="about-me">
+        <h2>About Me</h2>
+        <div class="profile-image-container">
+            <img id="profile-pic" src="./images/profile.jpg" alt="My Profile Picture">
+        </div>
         <p>Well, let's jump right into it shall we?<br>
             I am a cool dude who's interested in<br>
-            GOD,Tech, DevOps <i>(I know that DevOps is still inside tech, eh leave it for me)</i>, and continuous learning.</p>
+            GOD, Tech, DevOps <i>(I know that DevOps is still inside tech, eh leave it for me)</i>, and continuous learning.</p>
+        <button class="collapse-button" data-target="more-about-me">Read More</button>
+        <div id="more-about-me" class="collapsible-content hidden">
+            <p>Emmanuel is a DevOps Engineer with some background in systems administration, cloud computing, and infrastructure automation. He brings with him, quality years of hands-on experience in technology. He is very active when matters boils down to bridging the gaps that exists between development and operations, Emmanuel has built and maintained scalable, secure, and efficient infrastructure for modern applications. He has some solid DevOps projects on GitHub showcase / shelf.
+                And he is proficient in setting up an implementing CI/CD, containerization, infrastructure as code (IaC), cloud services (AWS, Azure), and automation tools like Terraform, Ansible, and Kubernetes.
+            </p>
+            <p>Emmanuel thrives in collaborative environments, and he does his best in ensuring smooth deployments, optimized cloud costs, and enhanced system reliability. He is constantly learning, staying abreast of industry trends, and applying best practices in DevOps, security, and cost optimization.
+                
+                Currently open to gist and collaborate with individuals in this space.</p>
+        </div>
     </section>
 
-    <section>
-        <h2>Some activities that piques my interest are:</h2>
-        <ul>
-            <li><strong>GOD</strong></li>
-            <li>Reading the Bible. <i>And yes, I am that guy...</i></li>
-            <li>Coding and Automating Workflows</li>
-            <li>Exploring Cloud Technologies</li>
-            <li>Reading Tech Blogs</li>
-            <li>Watching Sci-Fi Movies</li>
-        </ul>
+    <section id="interests">
+        <h2>My Interests & Skills</h2>
+        <div class="animated-items">
+            <div class="skill-item"><strong>GOD:</strong> A constant journey of faith and understanding.</div>
+            <div class="skill-item">Solving Problems: Enjoying the challenge of finding effective solutions.</div>
+            <div class="skill-item">Playing the Drums: Finding rhythm and expression through music.</div>
+            <div class="skill-item"><strong>DevOps:</strong> Passionate about bridging development and operations.</div>
+            <div class="skill-item">Music: Appreciating various genres and the art of sound.</div>
+            <div class="skill-item">Reading the Bible: A source of guidance and inspiration.</div>
+            <div class="skill-item">Coding & Automating Workflows: Making processes more efficient through code.</div>
+            <div class="skill-item">Exploring Cloud Technologies: Continuously learning about cloud platforms.</div>
+            <div class="skill-item">Reading Tech Blogs: Staying updated with the latest in technology.</div>
+            <div class="skill-item">Watching Sci-Fi Movies: Exploring imaginative and futuristic worlds.</div>
+        </div>
+    </section>
+
+    <section id="word-cloud-section">
+        <h2>Tech Focus Areas</h2>
+        <div id="word-cloud"></div>
+        <div id="word-cloud-popup" class="popup hidden">
+            <span class="close-button">×</span>
+            <p id="popup-content"></p>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Emmanuel's Profile. All rights reserved.</p>
+        <p>© 2025 Emmanuel's Profile. All rights reserved.</p>
+        <div class="theme-switcher">
+            <button id="theme-toggle">Dark Mode</button>
+            <div class="palette-options">
+                <button class="palette" data-theme="theme-default"></button>
+                <button class="palette" data-theme="theme-forest"></button>
+                <button class="palette" data-theme="theme-ocean"></button>
+                <button class="palette" data-theme="theme-sunset"></button>
+            </div>
+        </div>
     </footer>
+
+    <script src="particles.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
