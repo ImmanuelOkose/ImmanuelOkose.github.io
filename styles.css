@@ -46,7 +46,7 @@ header h1 {
   overflow: hidden; /* typewriter effect */
   white-space: nowrap;
   margin: 0 auto;
-  letter-spacing: .15em; /* Adjust as needed */
+  letter-spacing: .15em; 
   animation:
       typing 3.5s steps(40, end),
       blink-caret .75s step-end infinite;
@@ -211,8 +211,8 @@ footer {
   flex-wrap: wrap; /* Allow words to wrap to the next line */
   font-size: 1rem;
   padding: 1rem; /* Add some padding around the cloud */
-  border: 1px solid var(--light-bg); /* Optional: Add a border for visual containment */
-  border-radius: 8px; /* Optional: Round the corners */
+  border: 1px solid var(--light-bg); 
+  border-radius: 8px; 
   margin: 1rem auto; /* Center the cloud within its section */
   text-align: center; /* Center the words inside the container */
 }
@@ -225,7 +225,7 @@ footer {
   background-color: #f0f0f0;
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-  font-size: 1em; /* Reset font-size inheritance if needed */
+  font-size: 1em; /* Reset font-size inheritance d */
 }
 
 #word-cloud span:hover {
@@ -349,7 +349,7 @@ body.dark-mode {
 /* Corrected rules for dark mode popup */
 body.dark-mode .popup {
   background-color: #34495e; /* Darker background */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Adjust shadow if needed */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
 }
 
 body.dark-mode .popup .close-button {
